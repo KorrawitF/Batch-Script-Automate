@@ -2,10 +2,14 @@
 
 setlocal enabledelayedexpansion
 set /p dir="Minecraft directory: "
-echo Entered directory is %dir%
-
+echo Checking directory...
 mkdir workingDir
 
+if not exist "%dir%\assets" (
+	echo Invalid minecraft directory entered!
+	echo Minecraft did not install or Wrong directory given.
+	goto :stop
+)
 if not exist "%dir%\mods" (
     echo There is no mods folder! Did you install Forge?
 	:prompt
@@ -43,7 +47,7 @@ for /f "tokens=* delims=" %%a in ('type "%filename%"') do (
 
 rmdir /s /q "%~dp0\workingDir"
 echo Update Done!
-
+pause
 goto :eof
 
 :Extract <Destination> <ZipFile>
@@ -53,6 +57,6 @@ goto :eof
 :stop
 echo Installation stopped.
 rmdir /s /q "%~dp0\workingDir"
+pause
 goto :eof
 
-pause
