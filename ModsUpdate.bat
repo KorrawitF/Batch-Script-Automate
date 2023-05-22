@@ -10,12 +10,12 @@ if not exist "%dir%\assets" (
 	echo Minecraft did not install or Wrong directory given.
 	goto :stop
 )
-if not exist "%dir%\versions\1.19.2-forge-43.2.0" (
+if not exist "%dir%\versions\1.19.2-forge-43.2.10" (
     echo There is no mods folder! Did you install Forge?
 	:prompt
     set /p ans="Do you want to install Forge now?(Y/N)"
     if /i "%ans%"=="Y" (
-        curl -L -o workingDir/forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.2-43.2.0/forge-1.19.2-43.2.0-installer.jar
+        curl -L -o workingDir/forge.jar https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.2-43.2.10/forge-1.19.2-43.2.10-installer.jar
         java -jar workingDir/forge.jar
 		curl -L -o workingDir/mods.zip https://www.dropbox.com/s/5ag6fqz2hiz9qdq/mods.zip?dl=1
 		CALL :Extract "%dir%\mods" "%~dp0\workingDir\mods.zip"
