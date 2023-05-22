@@ -10,7 +10,7 @@ if not exist "%dir%\assets" (
 	echo Minecraft did not install or Wrong directory given.
 	goto :stop
 )
-if not exist "%dir%\mods" (
+if not exist "%dir%\versions\1.19.2-forge-43.2.0" (
     echo There is no mods folder! Did you install Forge?
 	:prompt
     set /p ans="Do you want to install Forge now?(Y/N)"
